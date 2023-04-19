@@ -49,7 +49,6 @@ for(let i=0;i<ordenar.length;i++){
 		console.log(ordenar[i][e]);
 	}
 	console.log(Number((ordenar[i][0]/totalVotos)*100)+"%");
+}	
 }
-	
-	
-}
+
