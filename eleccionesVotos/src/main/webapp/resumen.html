@@ -5,22 +5,71 @@
 <title>Insert title here</title>
 <script src="script/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <button onclick="ordenar()">Resumen</button>
-<canvas id="miGrafica" width="400" height="300"></canvas>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-6">
+					<h1>Generales</h1>
+<canvas id="miGrafica" width="150" height="100"></canvas>
+		</div>
+		<div class="col-sm-6">
+					<h1>Municipales</h1>
+<canvas id="grafica" width="150" height="100"></canvas>
+		</div>
+
+
+	</div>
+</div>
+
 <script>
-let miCanvas=document.getElementById("miGrafica").getContext("2d")
-var chart = new Chart(miCanvas,{
-	type:"bar",
-	data:{
-		labels:["VOX","PP","PSOE","Podemos"],
-		datasets:[{
-			label:"Mi grafica",
-			backgroundColor:"rgb(0,0,0)",
-			data:[2,10,8,9]
-		}]
-	}  
-})</script>
+var partidos = new Array(4);
+partidos[0]=Number(localStorage.getItem("VOX"));
+partidos[1]=Number(localStorage.getItem("PP"));
+partidos[2]=Number(localStorage.getItem("PSOE"));
+partidos[3]=Number(localStorage.getItem("Podemos"));
+
+const labels = ['VOX', 'PP', 'PSOE', 'Podemos']
+const colors = ['rgb(30, 249, 50)', 'rgb(30, 103, 249 )', 'rgb(249, 53, 30)', 'rgb(189, 30, 249)'];
+ 
+const graph = document.querySelector("#grafica");
+ 
+const data = {
+    labels: labels,
+    datasets: [{
+        data: [partidos[0],partidos[1],partidos[2],partidos[3]],
+        backgroundColor: colors
+    }]
+};
+ 
+const config = {
+    type: 'pie',
+    data: data,
+};
+ 
+new Chart(graph, config);
+//--------------------------------------------------------------------------------------------------
+const labels2 = ['VOX', 'PP', 'PSOE', 'Podemos']
+const colors2 = ['rgb(30, 249, 50)', 'rgb(30, 103, 249 )', 'rgb(249, 53, 30)', 'rgb(189, 30, 249)'];
+ 
+const graph2 = document.querySelector("#miGrafica");
+ 
+const data2 = {
+    labels: labels2,
+    datasets: [{
+        data: [partidos[0],partidos[1],partidos[2],partidos[3]],
+        backgroundColor: colors2
+    }]
+};
+ 
+const config2 = {
+    type: 'pie',
+    data: data2,
+};
+ 
+new Chart(graph2, config2);
+</script>
 </body>
 </html>
