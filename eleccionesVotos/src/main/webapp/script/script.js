@@ -16,6 +16,10 @@ function enviarDatos(form){
 		let contador=Number(localStorage.getItem("VOX"));
 		localStorage.setItem('VOX', contador+1);
 		}
+	if(nombre=="Otros"){
+		let contador=Number(localStorage.getItem("Otros"));
+		localStorage.setItem('Otros', contador+1);
+		}
 }
 
 function ordenar(){
@@ -24,6 +28,7 @@ function ordenar(){
 	ordenar[1] = new Array(2);
 	ordenar[2] = new Array(2);
 	ordenar[3] = new Array(2);
+	ordenar[4] = new Array(2);
 	
 	ordenar[0][1]="VOX";
 	ordenar[0][0]=Number(localStorage.getItem("VOX"));
@@ -33,7 +38,9 @@ function ordenar(){
 	ordenar[2][0]=Number(localStorage.getItem("PSOE"));
 	ordenar[3][1]="Podemos";
 	ordenar[3][0]=Number(localStorage.getItem("Podemos"));
-	var totalVotos=ordenar[0][0]+ordenar[1][0]+ordenar[2][0]+ordenar[3][0];
+	ordenar[4][1]="Otros";
+	ordenar[4][0]=Number(localStorage.getItem("Otros"));
+	var totalVotos=ordenar[0][0]+ordenar[1][0]+ordenar[2][0]+ordenar[3][0]+ordenar[4][0];
 	ordenar.sort((a, b) => {
   if(a == b) {
     return 0; 
