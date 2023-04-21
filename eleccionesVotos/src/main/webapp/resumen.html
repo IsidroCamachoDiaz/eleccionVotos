@@ -6,18 +6,104 @@
 <script src="script/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="css/resumen.css">
 </head>
 <body>
-<button onclick="ordenar()">Resumen</button>
+<a href="index.html"><button class="button-6" role="button">Volver</button></a>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-6">
-					<h1>Generales</h1>
-<canvas id="miGrafica" width="150" height="100"></canvas>
+					<h1>Municipales</h1>
+					<script>
+					var ordenar = new Array(2);
+					ordenar[0] = new Array(2);
+					ordenar[1] = new Array(2);
+					ordenar[2] = new Array(2);
+					ordenar[3] = new Array(2);
+					ordenar[4] = new Array(2);
+					ordenar[5] = new Array(2);
+					ordenar[6] = new Array(2);
+					
+					ordenar[0][1]="VOX";
+					ordenar[0][0]=Number(localStorage.getItem("VOXDos"));
+					ordenar[1][1]="PP";
+					ordenar[1][0]=Number(localStorage.getItem("PPDos"));
+					ordenar[2][1]="PSOE";
+					ordenar[2][0]=Number(localStorage.getItem("PSOEDos"));
+					ordenar[3][1]="Ciudadanos";
+					ordenar[3][0]=Number(localStorage.getItem("Ciudadanos"));
+					ordenar[4][1]="Otros";
+					ordenar[4][0]=Number(localStorage.getItem("OtrosDos"));
+					ordenar[5][1]="Adelante";
+					ordenar[5][0]=Number(localStorage.getItem("Adelante"));
+					ordenar[6][1]="IU Andalucia";
+					ordenar[6][0]=Number(localStorage.getItem("IU_Andalucia"));
+					var totalVotos=ordenar[0][0]+ordenar[1][0]+ordenar[2][0]+ordenar[3][0]+ordenar[4][0]+ordenar[5][0]+ordenar[6][0];
+					ordenar.sort((a, b) => {
+				  if(a == b) {
+				    return 0; 
+				  }
+				  if(a > b) {
+				    return -1;
+				  }
+				  return 1;
+				});
+
+				for(let i=0;i<ordenar.length;i++){
+					for(let e=0;e<ordenar[i].length;e++){
+						document.write(ordenar[i][e]+" ");
+					}
+					document.writeln(" "+Math.round(Number((ordenar[i][0]/totalVotos)*100))+"% <br>");
+				}
+					</script>
+					
+
 		</div>
 		<div class="col-sm-6">
-					<h1>Municipales</h1>
-<canvas id="grafica" width="150" height="100"></canvas>
+					<h1>Generales</h1>
+					<script>
+					var ordenar = new Array(2);
+					ordenar[0] = new Array(2);
+					ordenar[1] = new Array(2);
+					ordenar[2] = new Array(2);
+					ordenar[3] = new Array(2);
+					ordenar[4] = new Array(2);
+					
+					ordenar[0][1]="VOX";
+					ordenar[0][0]=Number(localStorage.getItem("VOX"));
+					ordenar[1][1]="PP";
+					ordenar[1][0]=Number(localStorage.getItem("PP"));
+					ordenar[2][1]="PSOE";
+					ordenar[2][0]=Number(localStorage.getItem("PSOE"));
+					ordenar[3][1]="Podemos";
+					ordenar[3][0]=Number(localStorage.getItem("Podemos"));
+					ordenar[4][1]="Otros";
+					ordenar[4][0]=Number(localStorage.getItem("Otros"));
+					var totalVotos=ordenar[0][0]+ordenar[1][0]+ordenar[2][0]+ordenar[3][0]+ordenar[4][0];
+					ordenar.sort((a, b) => {
+				  if(a == b) {
+				    return 0; 
+				  }
+				  if(a > b) {
+				    return -1;
+				  }
+				  return 1;
+				});
+
+				for(let i=0;i<ordenar.length;i++){
+					for(let e=0;e<ordenar[i].length;e++){
+						document.write(ordenar[i][e]+" ");
+					}
+					document.writeln(" "+Math.round(Number((ordenar[i][0]/totalVotos)*100))+"% <br>");
+				}	
+					</script>
+		</div>
+		<div class="col-sm-6">
+		<canvas id="miGrafica" width="150" height="100"></canvas>
+		</div>
+		<div class="col-sm-6">
+		
+		<canvas id="grafica" width="150" height="100"></canvas>
 		</div>
 
 
@@ -52,15 +138,24 @@ const config = {
  
 new Chart(graph, config);
 //--------------------------------------------------------------------------------------------------
-const labels2 = ['VOX', 'PP', 'PSOE', 'Podemos','Otros']
-const colors2 = ['rgb(30, 249, 50)', 'rgb(30, 103, 249 )', 'rgb(249, 53, 30)', 'rgb(189, 30, 249)','rgb(255, 141, 20)'];
+partidos2 = new Array(4);
+partidos2[0]=Number(localStorage.getItem("VOXDos"));
+partidos2[1]=Number(localStorage.getItem("PPDos"));
+partidos2[2]=Number(localStorage.getItem("PSOEDos"));
+partidos2[3]=Number(localStorage.getItem("Ciudadanos"));
+partidos2[4]=Number(localStorage.getItem("Adelante"));
+partidos2[5]=Number(localStorage.getItem("IU_Andalucia"));
+partidos2[6]=Number(localStorage.getItem("OtrosDos"));
+
+const labels2 = ['VOX', 'PP', 'PSOE', 'Ciudadanos','Adelante','IU Andalucia','Otros']
+const colors2 = ['rgb(30, 249, 50)', 'rgb(30, 103, 249 )', 'rgb(249, 53, 30)', 'rgb(249, 130, 30)','rgb(81, 251, 137)','rgb(25, 162, 11)','rgb(255, 141, 20)'];
  
 const graph2 = document.querySelector("#miGrafica");
  
 const data2 = {
     labels: labels2,
     datasets: [{
-        data: [partidos[0],partidos[1],partidos[2],partidos[3],partidos[4]],
+        data: [partidos2[0],partidos2[1],partidos2[2],partidos2[3],partidos2[4],partidos2[5],partidos2[6]],
         backgroundColor: colors2
     }]
 };
