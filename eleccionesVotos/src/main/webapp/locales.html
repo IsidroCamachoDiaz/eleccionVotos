@@ -1,0 +1,74 @@
+<!-- Javier Claro Barba -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Votaciones locales al Parlamento</title>
+	<link rel="stylesheet" href="css/votaciones.css">
+	<link rel="stylesheet" href="css/estilo.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/script.js"></script>   
+</head>
+<body>
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 col-xs-12"><h2 class="cabecera">Votaciones locales al Parlamento</h2></div>
+	</div>
+	</div>
+	
+	<hr><br>
+	<div class="container">
+	<div class="row">
+		<a href="index.html">	
+			<div class="col-md-2 col-lg-2 col-xl-2 col-sm-12 col-xs-12"><button class="boton">Volver al inicio</button></div> 
+  		</a>
+  	</div>
+  		<br><br>
+	<div class="formulario">
+		<form action="" method="get">
+
+	        <br>
+	        <label><h2>Candidatos: </h2></label>
+	        <br><br>            
+	            <div class="bolitas">
+	            
+	            	<div class="margen">
+	            		<div class="row">
+			                <div class="col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12"><input type="radio" name="partido" value="PPDOS"><label> PP</label></div>
+			                <br><br>
+			                
+			                <div class="col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12"><input type="radio" name="partido" value="PSOEDos"><label> PSOE</label></div>
+			                <br><br>
+			                
+			                <div class="col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12"><input type="radio" name="partido" value="Ciudadanos"><label> Ciudadanos</label></div>
+			                <br><br>
+			                
+			                <div class="col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12"><input type="radio" name="partido" value="Adelante"><label> Adelante</label></div>
+			                <br><br>
+			                
+			                <div class="col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12"><input type="radio" name="partido" value="VOXDos"><label> VOX</label></div>
+			                <br><br>
+			                
+			                <div class="col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12"><input type="radio" name="partido" value="IU_Andalucia"><label> IU Andalucía</label></div>
+			                <br><br>
+			                
+			                <div class="col-md-5 col-lg-5 col-xl-5 col-sm-12 col-xs-12"><input type="radio" name="partido" value="OtrosDos"><label> Otros</label></div>
+			                <br><br>
+			        	</div>
+		        	</div>
+	        	</div>	        	          		        
+			<br><br>
+			<div class="container">
+			<div class="row">
+			<div class=botonEnviar>
+		        <div class="col-md-2 col-lg-2 col-xl-2 col-sm-12 col-xs-12"><button onclick="enviarDatosM(this.form)">Enviar Voto</button></div>
+	    	</div>
+	    	</div>
+	    	</div>	       
+    	</form>
+	</div>
+</div> 		
+</body>
+</html>
